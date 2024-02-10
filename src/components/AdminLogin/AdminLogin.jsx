@@ -1,38 +1,23 @@
 
-const LoginPage = () => {
-    return (
+
+const AdminLogin = ()=> {
+
+    return(
         <>
             <div className="h-screen bg-gray-50" >
                 <div className="flex min-h-screen w-full items-center justify-center text-gray-600 bg-gray-50">
                     <div className="relative">
-                        <div className="hidden sm:block h-56 w-56 text-indigo-300 absolute a-z-10 -left-20 -top-20">
-                            <svg id="patternId" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" >
-                                <defs>
-                                    <pattern id="a" patternUnits="userSpaceOnUse" width="40" height="40" patternTransform="scale(0.6) rotate(0)">
-                                        <rect x="0" y="0" width="100%" height="100%" fill="none" />
-                                        <path d="M11 6a5 5 0 01-5 5 5 5 0 01-5-5 5 5 0 015-5 5 5 0 015 5" strokeWidth="1" stroke="none" fill="currentColor" />
-                                    </pattern>
-                                </defs>
-                                <rect width="800%" height="800%" transform="translate(0,0)" fill="url(#a)" />
-                            </svg>
-                        </div>
-                        <div className="hidden sm:block h-28 w-28 text-indigo-300 absolute a-z-10 -right-20 -bottom-20">
-                            <svg id="patternId" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-                                <defs>
-                                    <pattern id="b" patternUnits="userSpaceOnUse" width="40" height="40" patternTransform="scale(0.5) rotate(0)">
-                                        <rect x="0" y="0" width="100%" height="100%" fill="none" />
-                                        <path d="M11 6a5 5 0 01-5 5 5 5 0 01-5-5 5 5 0 015-5 5 5 0 015 5" strokeWidth="1" stroke="none" fill="currentColor" />
-                                    </pattern>
-                                </defs>
-                                <rect width="800%" height="800%" transform="translate(0,0)" fill="url(#b)" />
-                            </svg>
-                        </div>
+                        
+                        
                         <div className="relative flex flex-col sm:w-[30rem] rounded-lg border-gray-400 bg-white shadow-lg px-4">
                             <div className="flex-auto p-6">
                                 <div className="mb-10 flex flex-shrink-0 flex-grow-0 items-center justify-center overflow-hidden">
-                                    <a href="#" className="flex cursor-pointer items-center gap-2 text-indigo-500 no-underline hover:text-indigo-500">
-                                        <span className="flex-shrink-0 text-3xl font-black  tracking-tight opacity-100">
+                                    <a href="#" className="flex cursor-pointer items-center gap-2 text-black-500 no-underline hover:text-gray-500">
+                                        <span className="flex-shrink-0 text-3xl font-black  tracking-tight ">
                                             Words Magic !!
+                                            <br />
+                                            <hr />
+                                            <span className=" ml-9 text-2xl" >Admin Login</span>
                                         </span>
                                     </a>
                                 </div>
@@ -57,18 +42,16 @@ const LoginPage = () => {
                                         </div>
                                     </div>
 
-                                    <div className="mb-4">
-                                        <button className="grid w-full cursor-pointer select-none rounded-md border border-indigo-400 bg-indigo-400 py-2 px-5 text-center align-middle text-sm text-white shadow hover:border-indigo-600 hover:bg-indigo-600 hover:text-white focus:border-indigo-600 focus:bg-indigo-600 focus:text-white focus:shadow-none" type="submit">
+                                    <div className="my-9 ">
+                                        <button className="grid w-full cursor-pointer select-none rounded-md border border-black bg-black py-2 px-5 text-center align-middle text-sm text-white shadow hover:border-indigo-600 hover:bg-gray-600 hover:text-white focus:border-indigo-600 focus:bg-indigo-600 focus:text-white focus:shadow-none" type="submit">
                                             Sign in
                                         </button>
                                     </div>
                                 </form>
-                                <p className="mb-4 text-center">
-                                    Don't Have An Account? &nbsp;&nbsp;
+                                <p className="h-6 text-center">
+                                   
 
-                                    <a href="#" className="cursor-pointer text-blue-500 no-underline hover:text-blue-500">
-                                        Create an account
-                                    </a>
+                            
                                 </p>
                             </div>
                         </div>
@@ -77,6 +60,6 @@ const LoginPage = () => {
             </div>
         </>
     );
-};
+}
 
-export default LoginPage;
+export default AdminLogin;
