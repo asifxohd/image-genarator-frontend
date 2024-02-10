@@ -7,6 +7,8 @@ import Modal from 'react-modal';
 const AdminDashboard = () => {
 
     const [editUserModalOpen, setEditUserModalOpen] = useState(false)
+    const [addUserModalOpen, setAddUserModalOpen] = useState(false)
+
     useEffect(() => {
         Modal.setAppElement('#root');
     }, []);
@@ -31,8 +33,8 @@ const AdminDashboard = () => {
                     <div className=' mx-auto mt-20 md:w-[85%] '>
                         <div className=' mt-2 '>
                             <div className='flex justify-between mr-10 mt-6' >
-                                <div className='ml-12' >
-                                    <a href="#_" className="relative inline-block px-4 py-2 font-medium group">
+                                <div onClick={()=> setAddUserModalOpen(true)} className='ml-12' >
+                                    <a  className="relative inline-block px-4 py-2 font-medium group">
                                         <span className="absolute inset-0 w-full h-full transition duration-200 ease-out transform translate-x-1 translate-y-1 bg-black group-hover:-translate-x-0 group-hover:-translate-y-0"></span>
                                         <span className="absolute inset-0 w-full h-full bg-white border-2 border-black group-hover:bg-black"></span>
                                         <span className="relative text-black group-hover:text-white">Add User</span>
@@ -40,7 +42,7 @@ const AdminDashboard = () => {
 
                                 </div>
                                 <div className="search-bar">
-                                    <div className="input-container w-[50rem] relative">
+                                    <div className="input-container w-[20rem] lg:w-[50rem] relative">
                                         <input type="text" name="text" className="input" placeholder="search..." />
                                         <span className="icon">
                                             <svg width="19px" height="19px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"> <path opacity="1" d="M14 5H20" stroke="#000" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path> <path opacity="1" d="M14 8H17" stroke="#000" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path> <path d="M21 11.5C21 16.75 16.75 21 11.5 21C6.25 21 2 16.75 2 11.5C2 6.25 6.25 2 11.5 2" stroke="#000" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"></path> <path opacity="1" d="M22 22L20 20" stroke="#000" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round"></path> </g></svg>
@@ -126,7 +128,7 @@ const AdminDashboard = () => {
 
                         <Modal
                             isOpen={editUserModalOpen}
-                            className="custom-modal w-full sm:w-[30rem]"
+                            className="custom-modall w-full sm:w-[30rem]"
                             overlayClassName="custom-overlay"
                         >
                             <div className="modal-content">
@@ -140,60 +142,54 @@ const AdminDashboard = () => {
                                 </div>
                                 <div className="modal-body">
                                     <div className="relative flex flex-col  rounded-lg border-gray-400 bg-white shadow-lg px-4">
-                                        <div className="flex-auto p-6">
-                                            <div className="mb-10 flex flex-shrink-0 flex-grow-0 items-center justify-center overflow-hidden">
-                                                <a href="#" className="flex cursor-pointer items-center gap-2 text-indigo-500 no-underline hover:text-indigo-500">
+                                        <div className="flex-auto p-6 mb-6">
+                                            <div className=" flex flex-shrink-0 flex-grow-0 items-center justify-center overflow-hidden">
+                                                <a href="#" className="flex cursor-pointer items-center gap-2 text-black no-underline hover:text-gray-800">
                                                     <span className="flex-shrink-0 text-3xl font-black  tracking-tight opacity-100">
-                                                        Words Magic !!
+                                                        Update User
                                                     </span>
                                                 </a>
                                             </div>
 
-                                            <form id="" className="mb-4" action="#" method="POST">
+                                            <form  className="" action="#" method="POST">
                                                 <div className="mb-3">
                                                     <label htmlFor="email" className="mb-2 inline-block text-xs font-medium uppercase text-gray-700">
                                                         Username
                                                     </label>
-                                                    <input type="text" className="block w-full cursor-text appearance-none rounded-md border border-gray-400 bg--100 py-2 px-3 text-sm outline-none focus:border-indigo-500 focus:bg-white focus:text-gray-600 focus:shadow" id="email" name="email-username" placeholder="Enter your username..." autoFocus="" />
+                                                    <input type="text" className="block w-full cursor-text appearance-none rounded-md border border-gray-400 bg--100 py-2 px-3 text-sm outline-none focus:border-black focus:bg-white focus:text-gray-600 focus:shadow"  name="email-username" placeholder="Enter your username..." autoFocus="" />
                                                 </div>
                                                 <div className="mb-3">
                                                     <label htmlFor="email" className="mb-2 inline-block text-xs font-medium uppercase text-gray-700">
                                                         Email
                                                     </label>
-                                                    <input type="email" className="block w-full cursor-text appearance-none rounded-md border border-gray-400 bg--100 py-2 px-3 text-sm outline-none focus:border-indigo-500 focus:bg-white focus:text-gray-600 focus:shadow" id="email" name="email-username" placeholder="Enter your email..." autoFocus="" />
+                                                    <input type="email" className="block w-full cursor-text appearance-none rounded-md border border-gray-400 bg--100 py-2 px-3 text-sm outline-none focus:border-black focus:bg-white focus:text-gray-600 focus:shadow"  name="email-username" placeholder="Enter your email..." autoFocus="" />
                                                 </div>
                                                 <div className="mb-3">
                                                     <label htmlFor="email" className="mb-2 inline-block text-xs font-medium uppercase text-gray-700">
                                                         Phone Number
                                                     </label>
-                                                    <input type="text" className="block w-full cursor-text appearance-none rounded-md border border-gray-400 bg--100 py-2 px-3 text-sm outline-none focus:border-indigo-500 focus:bg-white focus:text-gray-600 focus:shadow" id="email" name="email-username" placeholder="Enter your Phone Number..." autoFocus="" />
+                                                    <input type="text" className="block w-full cursor-text appearance-none rounded-md border border-gray-400 bg--100 py-2 px-3 text-sm outline-none focus:border-black focus:bg-white focus:text-gray-600 focus:shadow"  name="email-username" placeholder="Enter your Phone Number..." autoFocus="" />
                                                 </div>
                                                 <div className="mb-3">
                                                     <label htmlFor="text" className="mb-2 inline-block text-xs font-medium uppercase text-gray-700">
                                                         Password
                                                     </label>
-                                                    <input type="text" className="block w-full cursor-text appearance-none rounded-md border border-gray-400 bg--100 py-2 px-3 text-sm outline-none focus:border-indigo-500 focus:bg-white focus:text-gray-600 focus:shadow" id="email" name="email-username" placeholder="Enter your Password..." autoFocus="" />
+                                                    <input type="text" className="block w-full cursor-text appearance-none rounded-md border border-gray-400 bg--100 py-2 px-3 text-sm outline-none focus:border-black focus:bg-white focus:text-gray-600 focus:shadow"  name="email-username" placeholder="Enter your Password..." autoFocus="" />
                                                 </div>
                                                 <div className="mb-3">
                                                     <label htmlFor="email" className="mb-2 inline-block text-xs font-medium uppercase text-gray-700">
                                                         Confirm Password
                                                     </label>
-                                                    <input type="text" className="block w-full cursor-text appearance-none rounded-md border border-gray-400 bg--100 py-2 px-3 text-sm outline-none focus:border-indigo-500 focus:bg-white focus:text-gray-600 focus:shadow" id="email" name="email-username" placeholder="Confirm Password..." autoFocus="" />
+                                                    <input type="text" className="block w-full cursor-text appearance-none rounded-md border border-gray-400 bg--100 py-2 px-3 text-sm outline-none focus:border-black focus:bg-white focus:text-gray-600 focus:shadow"  name="email-username" placeholder="Confirm Password..." autoFocus="" />
                                                 </div>
 
-                                                <div className="mb-3">
-                                                    <button className="grid w-full cursor-pointer select-none rounded-md border border-indigo-400 bg-indigo-400 py-2 px-5 text-center align-middle text-sm text-white shadow hover:border-indigo-600 hover:bg-indigo-600 hover:text-white focus:border-indigo-600 focus:bg-indigo-600 focus:text-white focus:shadow-none" type="submit">
-                                                        Sign Up
+                                                <div className="mt-6">
+                                                    <button className="grid w-full cursor-pointer select-none rounded-md border border-gray-400 bg-gray-800 py-2 px-5 text-center align-middle text-sm text-white shadow hover:border-gray-600 hover:bg-black hover:text-white focus:border-black focus:bg-indigo-600 focus:text-white focus:shadow-none" type="submit">
+                                                        Update
                                                     </button>
                                                 </div>
                                             </form>
-                                            <p className="mb-4 text-center">
-                                                Already Have An Account? &nbsp;
-
-                                                <a href="#" className="cursor-pointer text-blue-500 no-underline hover:text-blue-500">
-                                                    Sign in
-                                                </a>
-                                            </p>
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -204,6 +200,77 @@ const AdminDashboard = () => {
 
 
 
+                        <Modal
+                            isOpen={addUserModalOpen}
+                            className="custom-modall w-full sm:w-[30rem]"
+                            overlayClassName="custom-overlay"
+                        >
+                            <div className="modal-content">
+                                <div className='flex justify-end pt-5 px-8'>
+                                    <button
+                                        className="close-button "
+                                        onClick={() => setAddUserModalOpen(false)}
+                                    >
+                                        X
+                                    </button>
+                                </div>
+                                <div className="modal-body">
+                                    <div className="relative flex flex-col  rounded-lg border-gray-400 bg-white shadow-lg px-4">
+                                        <div className="flex-auto p-6 mb-6">
+                                            <div className=" flex flex-shrink-0 flex-grow-0 items-center justify-center overflow-hidden">
+                                                <a href="#" className="flex cursor-pointer items-center gap-2 text-black no-underline hover:text-gray-800">
+                                                    <span className="flex-shrink-0 text-3xl font-black  tracking-tight opacity-100">
+                                                        Add New User
+                                                    </span>
+                                                </a>
+                                            </div>
+
+                                            <form  className="" action="#" method="POST">
+                                                <div className="mb-3">
+                                                    <label htmlFor="email" className="mb-2 inline-block text-xs font-medium uppercase text-gray-700">
+                                                        Username
+                                                    </label>
+                                                    <input type="text" className="block w-full cursor-text appearance-none rounded-md border border-gray-400 bg--100 py-2 px-3 text-sm outline-none focus:border-black focus:bg-white focus:text-gray-600 focus:shadow"  name="email-username" placeholder="Enter your username..." autoFocus="" />
+                                                </div>
+                                                <div className="mb-3">
+                                                    <label htmlFor="email" className="mb-2 inline-block text-xs font-medium uppercase text-gray-700">
+                                                        Email
+                                                    </label>
+                                                    <input type="email" className="block w-full cursor-text appearance-none rounded-md border border-gray-400 bg--100 py-2 px-3 text-sm outline-none focus:border-black focus:bg-white focus:text-gray-600 focus:shadow"  name="email-username" placeholder="Enter your email..." autoFocus="" />
+                                                </div>
+                                                <div className="mb-3">
+                                                    <label htmlFor="email" className="mb-2 inline-block text-xs font-medium uppercase text-gray-700">
+                                                        Phone Number
+                                                    </label>
+                                                    <input type="text" className="block w-full cursor-text appearance-none rounded-md border border-gray-400 bg--100 py-2 px-3 text-sm outline-none focus:border-black focus:bg-white focus:text-gray-600 focus:shadow"  name="email-username" placeholder="Enter your Phone Number..." autoFocus="" />
+                                                </div>
+                                                <div className="mb-3">
+                                                    <label htmlFor="text" className="mb-2 inline-block text-xs font-medium uppercase text-gray-700">
+                                                        Password
+                                                    </label>
+                                                    <input type="text" className="block w-full cursor-text appearance-none rounded-md border border-gray-400 bg--100 py-2 px-3 text-sm outline-none focus:border-black focus:bg-white focus:text-gray-600 focus:shadow"  name="email-username" placeholder="Enter your Password..." autoFocus="" />
+                                                </div>
+                                                <div className="mb-3">
+                                                    <label htmlFor="email" className="mb-2 inline-block text-xs font-medium uppercase text-gray-700">
+                                                        Confirm Password
+                                                    </label>
+                                                    <input type="text" className="block w-full cursor-text appearance-none rounded-md border border-gray-400 bg--100 py-2 px-3 text-sm outline-none focus:border-black focus:bg-white focus:text-gray-600 focus:shadow"  name="email-username" placeholder="Confirm Password..." autoFocus="" />
+                                                </div>
+
+                                                <div className="mt-6">
+                                                    <button className="grid w-full cursor-pointer select-none rounded-md border border-gray-400 bg-gray-800 py-2 px-5 text-center align-middle text-sm text-white shadow hover:border-gray-600 hover:bg-black hover:text-white focus:border-black focus:bg-indigo-600 focus:text-white focus:shadow-none" type="submit">
+                                                        Confirm
+                                                    </button>
+                                                </div>
+                                            </form>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </Modal>
 
                     </div>
                 </div>
