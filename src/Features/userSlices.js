@@ -1,5 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { registerUser } from "./Action";
+
+
 let initialState = {
     loading: false,
     success: false,
@@ -24,6 +26,7 @@ const userSlice = createSlice({
             })
             .addCase(registerUser.rejected, (state, { payload }) => {
                 state.loading = false;
+                state.success = false;
                 if (payload) {
                     state.validation_errors = payload;
                 } else {
@@ -36,7 +39,7 @@ const userSlice = createSlice({
                 state.validation_errors = {};
             });
     },
-});
+})
 
 export default userSlice.reducer;
 export const { clearValidationErrors } = userSlice.actions;
