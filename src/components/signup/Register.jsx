@@ -91,7 +91,7 @@ const RegisterPage = () => {
         !confirmPasswordError &&
         password === confirmPassword &&
         JSON.stringify(data) !== JSON.stringify(prevData)
-      ) {
+      ) { 
         try {
           const resultAction = await dispatch(registerUser(data));
           const user = unwrapResult(resultAction);
@@ -104,7 +104,7 @@ const RegisterPage = () => {
         }
       }
     },
-    [data]
+    [username, password, email, phoneNumber, confirmPassword]
   );
 
   const validateUsername = (value) => {
