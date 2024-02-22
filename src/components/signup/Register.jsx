@@ -241,7 +241,7 @@ const RegisterPage = () => {
                       <div>{validation_errors.username}</div>
                     ) : (
                       ""
-                    )}
+                    )} 
                   </div>
                 </div>
                 <div className="mb-3">

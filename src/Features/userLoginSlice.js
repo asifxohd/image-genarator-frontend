@@ -7,6 +7,8 @@ const initialState = {
   success: false,
   error: null,
   is_authenticated: false,
+  userData: {},
+  is_superuser: false,
 };
 
 const userLoginSlice = createSlice({
@@ -20,11 +22,16 @@ const userLoginSlice = createSlice({
       state.is_authenticated = false;
       Cookies.remove("userInfo");
       Cookies.remove("authTokens");
-      console.log("Cookies removed successfully");
     },
     authenticateUser: (state) => {
       state.is_authenticated = true;
+
+
     },
+    fetchUserData:(state) => {
+      state.userData  = Cookies.get("authTokens") ? JSON.parse(Cookies.get("authTokens")) : null;
+      console.log(state.userData)
+    }
   },
   extraReducers: (builder) => {
     builder
@@ -37,6 +44,7 @@ const userLoginSlice = createSlice({
         state.loading = false;
         state.success = true;
         state.error = null;
+        state.is_superuser = JSON.parse(Cookies.get("authTokens")).is_superuser
       })
       .addCase(userLogin.rejected, (state, action) => {
         if (action.payload && action.payload.status === 401) {
@@ -49,4 +57,4 @@ const userLoginSlice = createSlice({
 });
 
 export default userLoginSlice.reducer;
-export const { logoutUser, authenticateUser } = userLoginSlice.actions;
+export const { logoutUser, authenticateUser, fetchUserData } = userLoginSlice.actions;

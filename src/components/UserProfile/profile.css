@@ -131,3 +131,65 @@
   .Btn:active {
     transform: translate(2px ,2px);
   }
+
+  .profile-pic {
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: multiply;
+    vertical-align: middle;
+    text-align: center;
+    color: transparent;
+    transition: all .3s ease;
+    cursor: pointer;
+    position: relative;
+}
+
+.profile-pic:hover {
+    background-color: rgba(0,0,0,.5);
+    color: #fff;
+}
+
+.profile-pic span {
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+form input[type="file"] {
+    display: none;
+}
+
+
+
+
+.profile-pic {
+  height: 240px!important;
+  width: 220px!important;
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: multiply;
+  vertical-align: middle;
+  text-align: center;
+  color: transparent;
+  transition: all .3s ease;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+.profile-pic:hover {
+  background-color: rgba(0,0,0,.5);
+  z-index: 10000;
+  color: #fff;
+  transition: all .3s ease;
+  text-decoration: none;
+}
+
+
+form input[type="file"] {
+        display: none;
+        cursor: pointer;
+}
+

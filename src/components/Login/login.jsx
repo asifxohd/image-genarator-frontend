@@ -3,8 +3,7 @@ import { Link, Navigate, useNavigate } from "react-router-dom";
 import { userLogin } from "../../Features/Action";
 import { useDispatch, useSelector } from "react-redux";
 import Cookies from "js-cookie";
-import { authenticateUser, logoutUser } from "../../Features/userLoginSlice";
-import { toast } from "react-toastify";
+import { authenticateUser, fetchUserData, logoutUser } from "../../Features/userLoginSlice";
 
 const LoginPage = () => {
     const [userEmail, setUserEmail] = useState("");
@@ -15,14 +14,20 @@ const LoginPage = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const { is_authenticated } = useSelector((state) => state.userLogin);
+    const { is_authenticated } = useSelector((state) => state.userLogin || {});
 
     useEffect(() => {
         if (is_authenticated) {
             navigate("user-dashboard/");
             
+        }else{
+            navigate('/')
         }
     }, [is_authenticated]);
+
+    useEffect(() => {
+       dispatch(fetchUserData())
+    }, []);
 
     const accessCookie = !!Cookies.get("authTokens");
 
@@ -43,6 +48,8 @@ const LoginPage = () => {
         if (!userPasswordError && !userEmailError) {
             try {
                 dispatch(userLogin(logindata));
+                dispatch(fetchUserData());
+                
             } catch {
                 alert("error something went really wrong habeebi");
             }
@@ -70,6 +77,7 @@ const LoginPage = () => {
             regex.test(value) ? "" : "Password must be at least 8 characters"
         );
     };
+    
 
     return (
         <>
